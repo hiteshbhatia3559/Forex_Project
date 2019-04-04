@@ -28,7 +28,7 @@ def chain_calculator(tuple_chain, matrix):
                 pnl *= chain[i+1]
                 i += 1
 
-def correlation()
+def correlation(chain_names,matrix):
 
 
 base_pairs = ['USD', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD', 'HKD']
