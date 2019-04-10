@@ -14,6 +14,7 @@ def perms(base_pairs):
 def chain_calculator(tuple_chain, matrix):
     chain_names = list(tuple_chain)
     chain = correlation(chain_names,matrix)
+    # returns 
     pnl = 1
     i, j = 0, 0
     while i < len(chain):
@@ -29,6 +30,7 @@ def chain_calculator(tuple_chain, matrix):
                 i += 1
 
 def correlation(chain_names,matrix):
+
 
 
 base_pairs = ['USD', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD', 'HKD']
