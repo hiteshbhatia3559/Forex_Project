@@ -19,10 +19,18 @@ Furthermore it would be nice to be able to filter the output so that it only sho
 
 Status
 ```
-Completed calculations of all permutations of combinations. 
+Completed. 
 Flow:
 1. For base pairs, generally calculate all permutations of combinations
 2. You can edit the base pair inputs
 3. For each chain in this set of permutations, calculate PNL in base currency
 4. Add an if statement that outputs all PNL in 0.95 to 0.99
+```
+
+Instructions
+```
+0. Install Python 3.5
+1. In the project director, open command prompt and type 'python main.py'
+2. Your results will be in results.csv
+3. Contact Hitesh if you have issues.
 ```

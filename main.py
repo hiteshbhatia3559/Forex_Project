@@ -50,10 +50,12 @@ if __name__ == "__main__":
     for chains in base_perms:
         for chain in chains:
             result = chain_calculator(chain, matrix)
-            results.append(results)
-            f.write(str(list(result.keys())[0]))
-            f.write(',')
-            f.write(str(list(result.values())[0]))
-            f.write('\n')
+            if (list(result.keys())[0] < 0.99) and (list(result.keys())[0] > 0.95):
+                results.append(results)
+                f.write(str(list(result.keys())[0]))
+                f.write(',')
+                f.write(str(list(result.values())[0]))
+                f.write('\n')
+
     f.close()
     print("All done, results in results.csv")
