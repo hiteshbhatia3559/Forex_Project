@@ -12,25 +12,24 @@ def perms(base_pairs):
 
 
 def chain_calculator(tuple_chain, matrix):
-    chain_names = list(tuple_chain)
-    chain = correlation(chain_names,matrix)
-    # returns 
+    chain = list(tuple_chain)
+    base_pairs = ['USD', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD', 'HKD']
+    # comb_base_pairs = combinations(base_pairs, 2)
+    i, j, a, b, k = 0, 0, 0, 0, 0
     pnl = 1
-    i, j = 0, 0
-    while i < len(chain):
-        if i == 0:
-            pnl = chain[i] * chain[i + 1]
-            i += 1
+    # Calculate list pnl
+    for item in chain:
+        if chain.index(item) == len(chain) - 1:
+            pnl *= round(1/round(matrix[base_pairs.index(chain[-2])][base_pairs.index(chain[-1])],8),8)
+            break
         else:
-            if i == len(chain) - 1:
-                pnl *= chain[0]
-                break
-            else:
-                pnl *= chain[i+1]
-                i += 1
-
-def correlation(chain_names,matrix):
-
+            x = base_pairs.index(item)
+            index_of_x_in_chain = chain.index(item)
+            y = base_pairs.index(chain[index_of_x_in_chain + 1])
+            pnl *= matrix[x][y]
+    # Result return to caller
+    string = '-'.join(chain) + '-' + chain[0]
+    return {string: pnl}
 
 
 base_pairs = ['USD', 'EUR', 'JPY', 'GBP', 'CHF', 'CAD', 'AUD', 'HKD']
@@ -46,7 +45,8 @@ matrix = [
 ]
 base_perms = perms(base_pairs)  # total amount of items in this dataset is 109600...
 # At this point, index 0 contains base pairs permutations of basepairs combination of 2 elements
-result = []
+results = []
 for chains in base_perms:
     for chain in chains:
-        result.append(chain_calculator(chain, matrix))
+        results.append(chain_calculator(chain, matrix))
+print(len(results))
